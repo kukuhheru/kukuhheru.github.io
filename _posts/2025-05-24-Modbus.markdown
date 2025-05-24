@@ -1,0 +1,66 @@
+---
+layout: post
+title:  "Modbus"
+date:   2025-05-24 12:43:08 +0700
+categories: daq data
+permalink: /protokol/modbus
+---
+# Memahami Modbus: Komunikasi dalam Dunia Industri
+
+Modbus adalah protokol komunikasi serial yang digunakan untuk menghubungkan perangkat elektronik dalam lingkungan industri. Dibuat pada tahun 1979 oleh Modicon (sekarang bagian dari Schneider Electric), Modbus telah menjadi standar de-facto untuk komunikasi industri karena kesederhanaan, keandalan, dan kemudahan implementasinya.
+
+Pada dasarnya, Modbus memungkinkan satu perangkat (disebut "**master**" atau "**klien**") untuk meminta informasi atau mengontrol perangkat lain (disebut "**slave**" atau "**server**"). Protokol ini sangat populer dalam sistem otomasi industri, termasuk PLC (Programmable Logic Controller), HMI (Human Machine Interface), SCADA (Supervisory Control and Data Acquisition), sensor, dan aktuator.
+
+---
+
+## Bagaimana Modbus Bekerja?
+
+Modbus beroperasi dengan mengirimkan pesan yang berisi alamat perangkat slave, kode fungsi yang menentukan jenis operasi (misalnya, membaca nilai, menulis nilai), dan data yang relevan. Setiap perangkat slave memiliki alamat unik, memastikan bahwa hanya perangkat yang dituju yang merespons permintaan master.
+
+Ada dua implementasi utama dari Modbus yang banyak digunakan:
+
+---
+
+### 1. Modbus Serial (RTU/ASCII)
+
+**Modbus Serial** adalah bentuk asli dari protokol ini, yang menggunakan antarmuka serial seperti RS-232 atau RS-485 untuk komunikasi.
+
+* **Modbus RTU (Remote Terminal Unit):** Ini adalah mode yang paling umum digunakan dalam Modbus Serial. Data ditransmisikan dalam format biner yang ringkas, sehingga efisien untuk komunikasi kecepatan rendah. Setiap pesan memiliki checksum untuk memastikan integritas data.
+* **Modbus ASCII (American Standard Code for Information Interchange):** Dalam mode ini, data ditransmisikan sebagai karakter ASCII. Meskipun lebih mudah dibaca oleh manusia, mode ini kurang efisien dibandingkan RTU karena setiap byte membutuhkan dua karakter ASCII.
+
+**Keuntungan Modbus Serial:**
+* Sederhana dan mudah diimplementasikan.
+* Biaya perangkat keras yang relatif rendah.
+* Cocok untuk aplikasi dengan kecepatan data rendah atau sedang.
+
+**Keterbatasan Modbus Serial:**
+* Jarak komunikasi terbatas (tergantung pada jenis kabel dan laju baud).
+* Jumlah perangkat yang dapat dihubungkan terbatas pada satu jaringan.
+* Kecepatan komunikasi yang lebih rendah dibandingkan Modbus TCP/IP.
+
+---
+
+### 2. Modbus TCP (TCP/IP)
+
+**Modbus TCP** (juga dikenal sebagai Modbus TCP/IP atau Modbus Ethernet) adalah evolusi dari Modbus yang memanfaatkan infrastruktur jaringan Ethernet dan protokol TCP/IP. Ini memungkinkan komunikasi Modbus melalui jaringan lokal (LAN) atau bahkan internet.
+
+Dalam Modbus TCP, "pesan" Modbus (tanpa checksum yang ada di Modbus Serial) dikemas ke dalam paket TCP/IP standar. Ini berarti Modbus TCP dapat memanfaatkan fitur-fitur jaringan Ethernet seperti kecepatan tinggi, jarak yang lebih jauh, dan kemampuan untuk menghubungkan lebih banyak perangkat secara bersamaan.
+
+**Keuntungan Modbus TCP:**
+* Kecepatan komunikasi yang jauh lebih tinggi.
+* Jarak komunikasi yang tidak terbatas (selama ada konektivitas IP).
+* Fleksibilitas untuk menghubungkan banyak perangkat di jaringan yang luas.
+* Memanfaatkan infrastruktur jaringan Ethernet yang sudah ada.
+
+**Keterbatasan Modbus TCP:**
+* Membutuhkan perangkat keras jaringan yang lebih canggih (misalnya, switch Ethernet).
+* Sedikit lebih kompleks dalam konfigurasi dibandingkan Modbus Serial.
+* Potensi masalah keamanan jika tidak diimplementasikan dengan benar pada jaringan yang terhubung ke internet.
+
+---
+
+## Kesimpulan
+
+Modbus, baik dalam bentuk serial maupun TCP/IP, tetap menjadi tulang punggung komunikasi di banyak sistem otomasi industri. Pilihan antara Modbus Serial dan Modbus TCP/IP bergantung pada kebutuhan spesifik aplikasi, seperti jarak komunikasi, kecepatan, dan jumlah perangkat yang terlibat. Memahami prinsip dasar Modbus sangat penting bagi siapa pun yang terlibat dalam perancangan, implementasi, atau pemeliharaan sistem kontrol industri modern.
+
+> Disclaimer : Artikel ini disusun oleh *gemini AI*
