@@ -28,7 +28,7 @@ twitter_username: kukuhheru
 github_username:  kukuhheru
 
 # Build settings
-theme: jekyll-theme-hacker
+theme: minima
 plugins:
   - jekyll-feed
 
